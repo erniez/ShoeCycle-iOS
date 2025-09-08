@@ -167,14 +167,14 @@ struct DateDistanceEntryView: View {
                     }
                 }
                 HStack {
-                    if settings.stravaEnabled == true {
+//                    if settings.stravaEnabled == true {
                         Image("stravaLogo")
-                    }
-                    if settings.healthKitEnabled == true {
+//                    }
+//                    if settings.healthKitEnabled == true {
                         Image(systemName: "heart.fill")
                             .renderingMode(.template)
                             .foregroundColor(.red)
-                    }
+//                    }
                 }
             }
             .padding([.top, .bottom, .trailing], 8)
