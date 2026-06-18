@@ -147,6 +147,45 @@ final class AddDistanceInteractionsTests: DBInteractiveTestCase {
         XCTAssertNotNil(state.historiesToShow)
     }
     
+    // Given: User settings with graphAllShoes=false
+    // When: Handle graphAllShoesToggled action with true
+    // Then: The new value should be persisted to user settings
+    func testGraphAllShoesToggledPersistsToUserSettings() {
+        let testUserSettings = createTestUserSettings()
+        let shoeStore = createTestShoeStore()
+
+        var interactor = AddDistanceInteractor()
+        interactor.setDependencies(shoeStore: shoeStore, userSettings: testUserSettings)
+
+        var state = AddDistanceState()
+
+        interactor.handle(state: &state, action: .graphAllShoesToggled(true))
+
+        XCTAssertEqual(testUserSettings.graphAllShoes, true)
+    }
+
+    // Given: A toggle to true that has been persisted, then a fresh view/state
+    // When: A new AddDistanceState handles viewAppeared (simulating a tab switch and return)
+    // Then: The toggle state should be restored from user settings, not reset to default
+    func testGraphAllShoesTogglePersistsAcrossViewReappearance() {
+        let testUserSettings = createTestUserSettings()
+        let shoeStore = createTestShoeStore()
+
+        var interactor = AddDistanceInteractor()
+        interactor.setDependencies(shoeStore: shoeStore, userSettings: testUserSettings)
+
+        // User toggles to "show all shoes"
+        var state = AddDistanceState()
+        interactor.handle(state: &state, action: .graphAllShoesToggled(true))
+
+        // User navigates away and back: the view is re-created with fresh state
+        var newState = AddDistanceState()
+        XCTAssertEqual(newState.graphAllShoes, false) // fresh state starts at default
+        interactor.handle(state: &newState, action: .viewAppeared)
+
+        XCTAssertEqual(newState.graphAllShoes, true) // restored, not reset
+    }
+
     // Given: State with shouldBounce=false
     // When: Handle shouldBounceChanged action with true
     // Then: State shouldBounce should be updated
