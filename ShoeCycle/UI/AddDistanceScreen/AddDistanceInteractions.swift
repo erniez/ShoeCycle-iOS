@@ -60,6 +60,7 @@ struct AddDistanceInteractor {
             
         case .graphAllShoesToggled(let newValue):
             state.graphAllShoes = newValue
+            userSettings.set(graphAllShoes: newValue)
             updateHistoriesToShow(state: &state, shoeStore: shoeStore)
             
         case .shouldBounceChanged(let newValue):
