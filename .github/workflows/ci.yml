@@ -1,0 +1,61 @@
+name: CI
+
+# Run the test suite on every commit pushed to any branch.
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+# Cancel an in-progress run when a newer commit is pushed to the same ref.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & Test
+    runs-on: macos-15
+    env:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          # Latest stable Xcode on the runner — provides the iPhone 17 Pro
+          # simulator that the test lane targets (see fastlane/Fastfile).
+          xcode-version: latest-stable
+
+      - name: Set up Ruby + cache gems
+        uses: ruby/setup-ruby@v1
+        with:
+          # Pinned to 3.1: a transitive fastlane dep (CFPropertyList 3.0.9)
+          # declares an erroneous `required_ruby_version < 3.2`, so Ruby 3.2+
+          # fails dependency resolution.
+          ruby-version: "3.1"
+          bundler-cache: true # runs `bundle install` and caches vendor/bundle
+
+      - name: Create Secrets stub
+        # The real StravaSecretKeyDeobfuscator is intentionally untracked. The
+        # build only needs the file to exist; SecretKeyFactory resolves the
+        # concrete class via NSClassFromString at runtime and falls back to
+        # DefaultDeobfuscator when it's absent (see ShoeCycle/Services/Obfuscation.swift).
+        run: |
+          cat > "ShoeCycle/Supporting Files/Secrets.swift" <<'EOF'
+          // CI stub. The real deobfuscator is untracked; see Obfuscation.swift.
+          import Foundation
+          EOF
+
+      - name: Run tests
+        run: bundle exec fastlane test
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: test-output
+          path: fastlane/test_output
+          if-no-files-found: ignore
