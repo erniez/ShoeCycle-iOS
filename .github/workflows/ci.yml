@@ -32,7 +32,10 @@ jobs:
       - name: Set up Ruby + cache gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3"
+          # Pinned to 3.1: a transitive fastlane dep (CFPropertyList 3.0.9)
+          # declares an erroneous `required_ruby_version < 3.2`, so Ruby 3.2+
+          # fails dependency resolution.
+          ruby-version: "3.1"
           bundler-cache: true # runs `bundle install` and caches vendor/bundle
 
       - name: Create Secrets stub
