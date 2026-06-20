@@ -27,3 +27,11 @@ Pods
 GoogleService-Info.plist
 Secrets.swift
 
+# Ruby / Bundler (fastlane)
+vendor/bundle
+.bundle
+
+# fastlane generated output
+fastlane/report.xml
+fastlane/test_output
+

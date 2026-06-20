@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<testsuites name='ShoeCycleTests.xctest' tests='3' failures='0'>
-  <testsuite name='ShoeCycleTests.ShoeCycleTests' tests='3' failures='0'>
-    <testcase classname='ShoeCycleTests.ShoeCycleTests' name='testExample' time='0.005'/>
-    <testcase classname='ShoeCycleTests.ShoeCycleTests' name='testExample2' time='0.005'/>
-    <testcase classname='ShoeCycleTests.ShoeCycleTests' name='testPerformanceExample' time='0.496'/>
-  </testsuite>
-</testsuites>
