@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "contract": "ShoeCycle feature-toggle deterministic bucketing",
+  "doc": "architecture/feature-toggles.md",
+  "algorithm": {
+    "hash": "SHA-256",
+    "hashInputFormat": "${flagKey}:${bucketingId}",
+    "inputEncoding": "UTF-8",
+    "hashBytesTaken": 4,
+    "byteOrder": "big-endian",
+    "integerType": "uint32",
+    "bucketFormula": "bucket = hashUint32 % 100",
+    "bucketRange": "[0,100)",
+    "inclusionRule": "inRollout = bucket < rolloutPercentage"
+  },
+  "vectors": [
+    {
+      "flagKey": "translation-rollout",
+      "bucketingId": "a1b2c3d4-0000-4000-8000-000000000001",
+      "bucketingInput": "translation-rollout:a1b2c3d4-0000-4000-8000-000000000001",
+      "hashHex8": "3bb58888",
+      "hashUint32": 1001752712,
+      "bucket": 12,
+      "rolloutPercentage": 50,
+      "inRollout": true
+    },
+    {
+      "flagKey": "translation-rollout",
+      "bucketingId": "a1b2c3d4-0000-4000-8000-000000000002",
+      "bucketingInput": "translation-rollout:a1b2c3d4-0000-4000-8000-000000000002",
+      "hashHex8": "e9b6b98f",
+      "hashUint32": 3921066383,
+      "bucket": 83,
+      "rolloutPercentage": 50,
+      "inRollout": false
+    },
+    {
+      "flagKey": "offline-sync",
+      "bucketingId": "cognito-sub-9f8e7d6c5b4a",
+      "bucketingInput": "offline-sync:cognito-sub-9f8e7d6c5b4a",
+      "hashHex8": "9298ff9e",
+      "hashUint32": 2459500446,
+      "bucket": 46,
+      "rolloutPercentage": 25,
+      "inRollout": false
+    },
+    {
+      "flagKey": "offline-sync",
+      "bucketingId": "cognito-sub-1122334455667",
+      "bucketingInput": "offline-sync:cognito-sub-1122334455667",
+      "hashHex8": "46515456",
+      "hashUint32": 1179735126,
+      "bucket": 26,
+      "rolloutPercentage": 25,
+      "inRollout": false
+    },
+    {
+      "flagKey": "new-hall-of-fame",
+      "bucketingId": "anon-7c9e6f2a-1234-4abc-9def-0011aabbccdd",
+      "bucketingInput": "new-hall-of-fame:anon-7c9e6f2a-1234-4abc-9def-0011aabbccdd",
+      "hashHex8": "39b4dd1a",
+      "hashUint32": 968154394,
+      "bucket": 94,
+      "rolloutPercentage": 10,
+      "inRollout": false
+    },
+    {
+      "flagKey": "new-hall-of-fame",
+      "bucketingId": "anon-3d5b8a10-9999-4fed-8cba-112233445566",
+      "bucketingInput": "new-hall-of-fame:anon-3d5b8a10-9999-4fed-8cba-112233445566",
+      "hashHex8": "23a1342a",
+      "hashUint32": 597767210,
+      "bucket": 10,
+      "rolloutPercentage": 90,
+      "inRollout": true
+    }
+  ]
+}

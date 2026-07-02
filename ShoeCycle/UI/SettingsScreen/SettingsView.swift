@@ -11,7 +11,12 @@ import AuthenticationServices
 
 struct SettingsView: View {
     @EnvironmentObject var settings: UserSettings
-    
+
+    // Feature-flag feature state. The view observes resolved booleans only (via
+    // state.isEnabled), never the raw service or evaluation logic — the interactor owns fetch.
+    @State private var flagsState = FeatureFlagsState()
+    private let flagsInteractor = FeatureFlagsInteractor()
+
     var body: some View {
         // NavigationView is required for keyboard toolbars to work properly in SwiftUI
         // Without this, the Done button won't appear on number pad keyboards
@@ -24,6 +29,11 @@ struct SettingsView: View {
                     SettingsFavoriteDistancesView()
                     SettingsHealthKitView()
                     SettingsStravaView(interactor: StravaInteractor(settings: settings))
+                    // Trivial reversible demo element gated behind a feature flag to prove the
+                    // toggle system end-to-end. Toggling the flag server-side shows/hides it.
+                    if flagsState.isEnabled(FeatureFlagKey.settingsDemoBadge) {
+                        FeatureFlagDemoBadge()
+                    }
                     AboutView()
                         .padding([.bottom])
                 }
@@ -31,8 +41,21 @@ struct SettingsView: View {
             }
             .background(.patternedBackground)
         }
+        .task {
+            await flagsInteractor.handle(state: $flagsState, action: .viewAppeared)
+        }
     }
-    
+
+}
+
+/// Trivial reversible UI element gated behind `FeatureFlagKey.settingsDemoBadge`. Pure
+/// presentation — it only renders when its flag resolves ON.
+struct FeatureFlagDemoBadge: View {
+    var body: some View {
+        Label("New feature available", systemImage: "sparkles")
+            .foregroundColor(.shoeCycleOrange)
+            .shoeCycleSection(title: "What's New", color: .shoeCycleOrange, image: Image(systemName: "sparkles"))
+    }
 }
 
 struct SettingsUnitsView: View {
