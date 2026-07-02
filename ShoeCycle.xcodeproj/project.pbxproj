@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		008FE6BD0ECE568D79433E96 /* FeatureFlagIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DA7C8DF3840B6E76BD7C47 /* FeatureFlagIdentity.swift */; };
+		113827A3E73B357982BF745D /* FeatureFlagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A0CA51E2DF635BFC9ACE72 /* FeatureFlagService.swift */; };
+		160690034485379BDF8A0E6D /* FeatureFlagsInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91182BCACB48ECBE48EF4D86 /* FeatureFlagsInteractions.swift */; };
 		1B09C8C72AD0DF1A00AD0A21 /* CoreDataObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B09C8C62AD0DF1A00AD0A21 /* CoreDataObserver.swift */; };
 		1B09C8CB2AD4694F00AD0A21 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B09C8CA2AD4694F00AD0A21 /* ConsoleLogger.swift */; };
 		1B0AD7F32A2AA132006AB307 /* ShoeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0AD7F22A2AA132006AB307 /* ShoeStore.swift */; };
@@ -110,6 +113,11 @@
 		1BE5406A2AAB73B500DCC109 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE540692AAB73B500DCC109 /* HealthKitService.swift */; };
 		1BF005412A58C430007AE489 /* HallOfFameSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF005402A58C430007AE489 /* HallOfFameSelector.swift */; };
 		3405C1C06E8559F7D75320FB /* ShoeDetailInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1246FB9C56390FC3DF9193 /* ShoeDetailInteractions.swift */; };
+		4E43F0F1C957FAD869AF8057 /* FeatureFlagEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30180211744D5F67BAF5619E /* FeatureFlagEvaluatorTests.swift */; };
+		61E85A696365099DB7632657 /* FeatureFlagIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BF0AA78E338151EB6162F /* FeatureFlagIdentityTests.swift */; };
+		852F6A81BA3540B983758652 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1EDB40798EC7B057B35030 /* FeatureFlag.swift */; };
+		99D8446172BEAE385F499433 /* FeatureFlagServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E4FA0AD18AD13EEB49BAD /* FeatureFlagServiceTests.swift */; };
+		C2CBA5F500C483667E194A74 /* feature-toggles.vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = A1DF88E0E2758CBCB83CD9AA /* feature-toggles.vectors.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +144,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		176E4FA0AD18AD13EEB49BAD /* FeatureFlagServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeatureFlagServiceTests.swift; sourceTree = "<group>"; };
 		1B09C8C62AD0DF1A00AD0A21 /* CoreDataObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataObserver.swift; sourceTree = "<group>"; };
 		1B09C8CA2AD4694F00AD0A21 /* ConsoleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		1B0AD7F22A2AA132006AB307 /* ShoeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeStore.swift; sourceTree = "<group>"; };
@@ -247,7 +256,14 @@
 		1BE540672AAA231300DCC109 /* StravaTokenKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaTokenKeeper.swift; sourceTree = "<group>"; };
 		1BE540692AAB73B500DCC109 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		1BF005402A58C430007AE489 /* HallOfFameSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameSelector.swift; sourceTree = "<group>"; };
+		210BF0AA78E338151EB6162F /* FeatureFlagIdentityTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeatureFlagIdentityTests.swift; sourceTree = "<group>"; };
+		30180211744D5F67BAF5619E /* FeatureFlagEvaluatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeatureFlagEvaluatorTests.swift; sourceTree = "<group>"; };
+		41A0CA51E2DF635BFC9ACE72 /* FeatureFlagService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeatureFlagService.swift; path = FeatureFlagService.swift; sourceTree = "<group>"; };
 		4B1246FB9C56390FC3DF9193 /* ShoeDetailInteractions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShoeDetailInteractions.swift; path = ShoeCycle/UI/ShoeDetailView/ShoeDetailInteractions.swift; sourceTree = "<group>"; };
+		83DA7C8DF3840B6E76BD7C47 /* FeatureFlagIdentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeatureFlagIdentity.swift; path = FeatureFlagIdentity.swift; sourceTree = "<group>"; };
+		91182BCACB48ECBE48EF4D86 /* FeatureFlagsInteractions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeatureFlagsInteractions.swift; path = FeatureFlagsInteractions.swift; sourceTree = "<group>"; };
+		A1DF88E0E2758CBCB83CD9AA /* feature-toggles.vectors.json */ = {isa = PBXFileReference; includeInIndex = 1; path = "feature-toggles.vectors.json"; sourceTree = "<group>"; };
+		DF1EDB40798EC7B057B35030 /* FeatureFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeatureFlag.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +470,10 @@
 				1BCF9FFA2A1BFDDD007F697E /* ShoeTests.swift */,
 				1B24642C2E2B42E9001BA533 /* TimeIntervalExtensionTests.swift */,
 				1B24643F2E2C32FE001BA533 /* UserSettingsTests.swift */,
+				30180211744D5F67BAF5619E /* FeatureFlagEvaluatorTests.swift */,
+				176E4FA0AD18AD13EEB49BAD /* FeatureFlagServiceTests.swift */,
+				210BF0AA78E338151EB6162F /* FeatureFlagIdentityTests.swift */,
+				A1DF88E0E2758CBCB83CD9AA /* feature-toggles.vectors.json */,
 			);
 			path = ShoeCycleTests;
 			sourceTree = "<group>";
@@ -541,6 +561,10 @@
 				1BE540632AA81E6D00DCC109 /* StravaService.swift */,
 				1BE540672AAA231300DCC109 /* StravaTokenKeeper.swift */,
 				1B68ACA22ABFA9BE00348E8A /* StravaURLs.swift */,
+				DF1EDB40798EC7B057B35030 /* FeatureFlag.swift */,
+				83DA7C8DF3840B6E76BD7C47 /* FeatureFlagIdentity.swift */,
+				41A0CA51E2DF635BFC9ACE72 /* FeatureFlagService.swift */,
+				91182BCACB48ECBE48EF4D86 /* FeatureFlagsInteractions.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -641,7 +665,7 @@
 			);
 			mainGroup = 1BCF642E148AF7E5004C0E6A;
 			packageReferences = (
-				1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
 			);
 			productRefGroup = 1BCF643A148AF7E7004C0E6A /* Products */;
 			projectDirPath = "";
@@ -658,6 +682,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2CBA5F500C483667E194A74 /* feature-toggles.vectors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +747,9 @@
 				1BC96BBF2E35453B00A332DA /* DateDistanceEntryInteractionsTests.swift in Sources */,
 				1BC96BC02E35453B00A332DA /* AddDistanceInteractionsTests.swift in Sources */,
 				1BC96BC12E35453B00A332DA /* RunHistoryChartInteractionsTests.swift in Sources */,
+				4E43F0F1C957FAD869AF8057 /* FeatureFlagEvaluatorTests.swift in Sources */,
+				99D8446172BEAE385F499433 /* FeatureFlagServiceTests.swift in Sources */,
+				61E85A696365099DB7632657 /* FeatureFlagIdentityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +828,10 @@
 				1BC08E7B14D42171007A4344 /* Shoe.m in Sources */,
 				1B3D29D52A3E794A00BE7956 /* Line.swift in Sources */,
 				3405C1C06E8559F7D75320FB /* ShoeDetailInteractions.swift in Sources */,
+				852F6A81BA3540B983758652 /* FeatureFlag.swift in Sources */,
+				008FE6BD0ECE568D79433E96 /* FeatureFlagIdentity.swift in Sources */,
+				113827A3E73B357982BF745D /* FeatureFlagService.swift in Sources */,
+				160690034485379BDF8A0E6D /* FeatureFlagsInteractions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,7 +1255,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -1236,7 +1268,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		1BB8A812288497B500B45B67 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 1BB8A811288497B500B45B67 /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
 			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
